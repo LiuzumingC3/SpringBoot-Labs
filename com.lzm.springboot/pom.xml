@@ -10,6 +10,7 @@
     <modules>
         <module>lab1-springboot-starter</module>
         <module>lab2-springMVC</module>
+        <module>lab3-quanJuTongYiFangHui</module>
     </modules>
 
     <properties>
