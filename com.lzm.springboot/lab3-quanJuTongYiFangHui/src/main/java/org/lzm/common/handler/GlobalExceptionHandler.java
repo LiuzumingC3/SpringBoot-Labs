@@ -23,6 +23,7 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 ServiceException 异常
+     * 拦截处理 ServiceException 业务异常，直接使用该异常的 code + message 属性，构建出 CommonResult 对象返回。
      */
     @ResponseBody
     @ExceptionHandler(value = ServiceException.class)
@@ -34,7 +35,8 @@ public class GlobalExceptionHandler {
 
     /**
      * 处理 MissingServletRequestParameterException 异常
-     *
+     *拦截处理 MissingServletRequestParameterException 请求参数异常，
+     * 构建出错误码为 ServiceExceptionEnum.MISSING_REQUEST_PARAM_ERROR 的 CommonResult 对象返回
      * SpringMVC 参数不正确
      */
     @ResponseBody

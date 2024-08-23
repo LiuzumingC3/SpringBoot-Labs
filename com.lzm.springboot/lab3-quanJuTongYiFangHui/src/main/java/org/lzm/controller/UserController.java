@@ -81,6 +81,16 @@ public class UserController {
         throw new ServiceException(ServiceExceptionEnum.USER_NOT_FOUND);
     }
 
+    @GetMapping("/exception-03")
+    public void exception03() {
+        logger.info("[exception03]");
+        throw new ServiceException(ServiceExceptionEnum.USER_NOT_FOUND);
+    }
+
+
+    /*
+    * 测试全局HandlerInterceptor抛出异常
+    * */
     @GetMapping("/do_something")
     public void doSomething() {
         logger.info("[doSomething]");
@@ -92,11 +102,7 @@ public class UserController {
         return new UserVO().setId(10).setUsername(UUID.randomUUID().toString());
     }
 
-    @GetMapping("/exception-03")
-    public void exception03() {
-        logger.info("[exception03]");
-        throw new ServiceException(ServiceExceptionEnum.USER_NOT_FOUND);
-    }
+
 
     @PostMapping(value = "/add",
             // ↓ 增加 "application/xml"、"application/json" ，针对 Content-Type 请求头
